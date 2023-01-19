@@ -1,0 +1,158 @@
+1. https://leetcode.com/problems/container-with-most-water
+----------
+solution :
+  technique --> two pointer approach 
+  algo :
+      1. intialize i = 0 , j = length - 1
+      2. calculate water capacity between i and j 
+      3. if a[i] < a[j] then i++ else j-- 
+----------
+2. https://leetcode.com/problems/wildcard-matching
+3. https://leetcode.com/problems/largest-number
+----------
+solution :
+   technique --> sorting 
+   algo :
+      1. convert integers to strings 
+      2. sort the strings by modifying the comparator
+            Arrays.sort(strings,(x,y) -> (y+x).compareTo(x+y)) 
+      3.  make the array of string to single string by concatenation
+----------
+4. https://leetcode.com/problems/remove-duplicate-letters
+---------- 
+solution :
+   technique --> stack 
+   algo :
+      1. Maintain last index of each character
+      2. traverse the string from left to right 
+      3. if the char at index is already visited continue 
+      4. otherwise pop the elements from the stack untill stack is not empty 
+      and peek element is greater than current and last index is greater than the current index
+      then set the visited of char to false 
+      5. push char to stack and visited to true 
+----------
+5. https://leetcode.com/problems/increasing-triplet-subsequence
+----------
+solution :
+    technique --> prefix and sufix arrays 
+    algo : 
+      1. compute prefix array for min element so far
+      2. compute suffix array for max element so far
+      3. traverse the array if left[i] < arr[i] < right[i] then solution exists
+----------
+6. https://leetcode.com/problems/wiggle-subsequence
+---------- 
+      problem stmt : delete minimum numbers possible such that array forms alternating +ve and -ve diff
+      intuition : counting alteranting ascending and descending sub arrays
+      solution : number of alternating max and min peaks in an array
+      algo :
+        if (nums.length < 2)
+            return nums.length;
+        int prevdiff = nums[1] - nums[0];
+        int count = prevdiff != 0 ? 2 : 1;
+        for (int i = 2; i < nums.length; i++) {
+            int diff = nums[i] - nums[i - 1];
+            if ((diff > 0 && prevdiff <= 0) || (diff < 0 && prevdiff >= 0)) {
+                count++;
+                prevdiff = diff;
+            }
+        }
+        return count; 
+----------
+7. https://leetcode.com/problems/remove-k-digits
+---------- 
+solution : 
+          technique : stack + greedy 
+          algo :
+             1. traverse the string from left to right
+             2. while stack not empty and top > curr and k > 0: pop() and k -= 1
+             3. if stack is empty or top < curr push(curr)
+             4. answer will concatenate reverse of stack 
+----------
+8. https://leetcode.com/problems/longest-palindrome
+----------
+solution :
+          technique : frequency count 
+          algo : 
+        int[] count = new int[128];
+        for (char c: s.toCharArray())
+            count[c]++;
+
+        int ans = 0;
+        for (int v: count) {
+            ans += v / 2 * 2;
+            if (ans % 2 == 0 && v % 2 == 1)
+                ans++;
+        }
+        return ans;
+----------
+9. https://leetcode.com/problems/assign-cookies
+----------
+solution :
+        technique : sorting 
+        algo :
+        i,j,ans = 0,0,0
+        while i < len(g) and j < len(s) :
+            if s[j] >= g[i] :
+                ans += 1
+                j +=1 
+                i += 1
+            else :
+                j += 1 
+        return ans
+----------
+10. https://leetcode.com/problems/array-partition-i
+----------
+solution : 
+        technique : sorting 
+        algo :
+        nums.sort() 
+        ans = 0
+        for i in range(len(nums)) :
+            if not (i & 1) :
+                ans += nums[i] 
+        return ans
+----------
+11. https://leetcode.com/problems/can-place-flowers
+----------
+solution :
+       technique : observation
+       algo :
+          count no of empty plots which are valid 
+--------
+12. https://leetcode.com/problems/maximum-length-of-pair-chain
+--------
+solution :
+	technique : sorting
+--------
+13. https://leetcode.com/problems/valid-palindrome-ii
+--------
+solution :
+        technique : two pointer + recursion
+--------
+14. https://leetcode.com/problems/valid-palindrome-ii
+15. https://leetcode.com/problems/reorganize-string
+--------
+solution :
+        technique : most repeated character is choosed , priority queue is used for that
+alog : 
+--------
+16. https://leetcode.com/problems/lemonade-change
+--------
+solution :
+        technique : sorting 
+--------
+17. https://leetcode.com/problems/di-string-match
+--------
+solution :
+        technique : two pointer
+--------
+18. https://leetcode.com/problems/largest-perimeter-triangle
+--------
+solution :
+        technique : sorting 
+--------
+19. https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum
+20. https://leetcode.com/problems/distant-barcodes
+
+
