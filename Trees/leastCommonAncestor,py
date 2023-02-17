@@ -1,0 +1,13 @@
+def lca(root,p,q) :
+    if root == None or root == p or root == q : 
+        return root 
+    
+    left = lca(root.left,p,q) 
+    right = lca(root.right,p,q) 
+    
+    if left == None :
+        return right 
+    
+    if right == None :
+        return left 
+    return root 
